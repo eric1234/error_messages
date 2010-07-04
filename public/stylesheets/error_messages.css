@@ -1,0 +1,52 @@
+.flash-block, .errorExplanation {
+  padding: 0;
+  font-size: 1.1em;
+  margin: 1em 0;
+}
+.flash-block ul, .flash-block li,
+.errorExplanation ul, .errorExplanation li {
+  list-style-type: none;
+  margin: 0; padding: 0;
+}
+.flash-block div, .errorExplanation {
+  padding: 1em 1em 1em 3.5em;
+  border-width: medium;
+  border-style: solid;
+  background-color: #fdd9a3;
+  border-color: #cc6502;
+  background-image: url(/images/flash-message.png);
+  background-position: 1em 50%;
+  background-repeat: no-repeat;
+}
+.flash-notice div, .flash-success div {
+  background-color: #ACE18A;
+  border-color: #2A954D;
+  background-image: url(/images/flash-notice.png);
+}
+.flash-warning div, .flash-error div, .errorExplanation {
+  background-color: #F09185;
+  border-color: #A30000;
+  background-image: url(/images/flash-warning.png);
+}
+.errorExplanation {
+  padding: 0;
+  background-position: 1em 3em;
+}
+.errorExplanation p, .errorExplanation ul {
+  padding: 0 0 0 3.5em;
+  margin: 1em 0;
+}
+.errorExplanation h2 {
+  font-size: 1.2em;
+  padding: 0.25em 1em;
+  margin: 0;
+  background-color: #A30000;
+  color: white;
+}
+.textWithErrors input, .fieldWithErrors textarea,
+.emailWithErrors input, .urlWithErrors input, .passwordWithErrors input,
+.numberWithErrors input, .fieldWithErrors select, .checkboxWithErrors,
+.fileWithErrors input {
+  background-color: #F09185
+}
+.fieldWithErrors option {background-color: #FFF}

@@ -1,0 +1,34 @@
+A crazy simple Rails add-on to handle displaying and styling of flash
+messages and error messages. Includes:
+
+  flash_messages helper::
+    Will output all flash messages in a container to be easily styled
+
+  error_messages.css::
+    Included in your app to apply nice looking styles that most apps
+    will find reasonable. Styles flash messages, the
+    "error_messages_for" helper that Rails provides and the
+    field_error_proc that highlights the problem fields
+
+  error_messages.js::
+    If you want to get fancy and have some of the flash messages fade
+    shortly after displaying (nice for notices) include this in your
+    application. NOTE: You MUST include prototype and script.aculo.us
+    BEFORE you load this JS file.
+
+  flash_type.png::
+    For several of the common flash types our stylesheets refer to some
+    images which help convey the message and look nice in most apps.
+
+  field_error_proc::
+    Replaces the default field_error_proc with a span based one since
+    the div one often causes layout problems and invalid HTML.
+
+  rake task::
+    A rake task to copy the assets (CSS, JS, images) into the app
+
+Since this plugin is mostly about establishing a look we don't have much
+in the way of traditional unit testing but we do have a test page that
+shows everything all laid out so you can adjust and tweak the styles.
+This special page can be accessed via the path /error_messages and is
+ONLY available if in the development environment.
