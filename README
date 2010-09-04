@@ -32,3 +32,8 @@ in the way of traditional unit testing but we do have a test page that
 shows everything all laid out so you can adjust and tweak the styles.
 This special page can be accessed via the path /error_messages and is
 ONLY available if in the development environment.
+
+= CREDIT
+
+This gem was developed by Eric Anderson (http://pixelwareinc.com) via
+work done under Red Tusk Studios (http://redtusk.com).
