@@ -33,6 +33,9 @@ shows everything all laid out so you can adjust and tweak the styles.
 This special page can be accessed via the path /error_messages and is
 ONLY available if in the development environment.
 
+Only Rails 3 is supported. For Rails 2.x support see version 0.0.2 of
+this gem.
+
 = CREDIT
 
 This gem was developed by Eric Anderson (http://pixelwareinc.com) via

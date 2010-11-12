@@ -52,8 +52,8 @@
         <li>The problem fields highlighted</li>
       </ul>
   
-      <% form_tag do %>
-        <%= error_messages_for :object %>
+      <%= form_tag do %>
+        <%= error_messages_for :object if respond_to? :error_messages_for %>
 
         <table class="form">
           <tr>

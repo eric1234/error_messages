@@ -46,7 +46,7 @@
 .textWithErrors input, .fieldWithErrors textarea,
 .emailWithErrors input, .urlWithErrors input, .passwordWithErrors input,
 .numberWithErrors input, .fieldWithErrors select, .checkboxWithErrors,
-.fileWithErrors input {
+.fileWithErrors input, .telWithErrors input {
   background-color: #F09185
 }
 .fieldWithErrors option {background-color: #FFF}

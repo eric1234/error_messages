@@ -25,22 +25,20 @@ LONG
 
     @object = Object.new
     def Object.human_name; 'Object' end
-    def Object.human_attribute_name(a); a.to_s.humanize end
+    def Object.human_attribute_name(a, options={}); a.to_s.humanize end
     def @object.text; end
     def @object.multiline; end
     def @object.select; end
     def @object.checkbox; end
     def @object.file; end
     def @object.errors
-      returning(ActiveRecord::Errors.new(self)) do |errors|
-        errors.add_to_base 'Some generic error'
+      ActiveModel::Errors.new(self).tap do |errors|
+        errors.add :base, 'Some generic error'
         %w(text multiline select checkbox file).each do |attr_type|
           errors.add attr_type.to_sym, 'error'
         end
       end
     end
-
-    render :layout => false
   end
 
 end
