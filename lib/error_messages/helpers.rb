@@ -2,7 +2,8 @@ module ErrorMessages::Helpers
 
   # Display any flash messages set in a container to be easily styled.
   def flash_messages(*flash_types)
-    (flash_types || flash.keys).collect do |type|
+    flash_types = flash.keys if flash_types.empty?
+    flash_types.collect do |type|
       type = type.to_sym
       next if flash[type].blank?
       content = if flash[type].is_a? String
