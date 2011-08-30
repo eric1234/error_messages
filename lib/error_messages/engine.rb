@@ -1,18 +1,7 @@
 # The only reason this is an engine instead of just a simple Railtie
 # is to allow the test page for development mode. Maybe there is a
 # better way to do this?
-
-plugin_type = if Rails.env.development?
-  # If in development mode make it a full engine so our test controller
-  # works without having to do anything more.
-  Rails::Engine
-else
-  # When not in development then make it a simple plugin to make it
-  # lighter weight and reduce potential avenues of having issues
-  Rails::Railtie
-end
-
-class ErrorMessages::Railtie < plugin_type
+class ErrorMessages::Railtie < Rails::Engine
 
   # Let everybody know about our snazzy helper :)
   initializer 'error_messages.helpers' do

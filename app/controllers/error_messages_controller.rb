@@ -1,6 +1,8 @@
 class ErrorMessagesController < ApplicationController
 
   def index
+    return :nothing => true, :status => :not_found unless Rails.env.development?
+
     # Cannon messages
     flash.now[:notice] =  'Fuck yea...'
     flash.now[:warning] = 'Oh shit...'
