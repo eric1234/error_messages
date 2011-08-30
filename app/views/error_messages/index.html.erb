@@ -1,92 +1,83 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Error Message Test</title>
-    <style>
-      .content {width: 60em; margin: 1em auto}
-      .form td {vertical-align: top}
-    </style>
-    <%= stylesheet_link_tag 'error_messages' %>
-  </head>
+<style>
+  #error-content {margin: 1em auto}
+  .form td {vertical-align: top}
+</style>
 
-  <body>
-    <div class="content">
+<div id="error-content">
 
-      <h1>Flash Messages</h1>
-  
-      <p>The following sub-sections test various flash message to make
-      sure they look good. Make sure you have run the rake tasks to
-      install the assets in your app before running this test.</p> 
-  
-      <h2>Cannon flash keys</h2>
-      <p>
-        For a while :notice, :warning and :message have been somewhat
-        of cannon flash keys.
-      </p>
-      <%= flash_messages :notice, :warning, :message %>
-  
-      <h2>Alternate flash keys</h2>
-      <p>
-        The cannon flash keys are not always obvious. Some people
-        prefer :success to :notice, :error to :warning and :info or :alert
-        to :message. We want to support these common alternates.
-      </p>
-      <%= flash_messages :success, :error, :info, :alert %>
-  
-      <h2>Corner Cases</h2>
-      <p>
-        We also want to test to ensure that VERY long flash messages still
-        look good AND flash messages with multiple values (i.e. an array)
-        is supported.
-      </p>
-      <%= flash_messages :long, :multiple %>
-  
-      <h1>Form Errors</h1>
-      <p>
-        This next section tests form error. Specifically we are looking
-        at:
-      </p>
-      <ul>
-        <li>A block at the top listing all the problems. This includes
-        general errors on the object and attribute specific errors.</li>
-        <li>The problem fields highlighted</li>
-      </ul>
-  
-      <%= form_tag do %>
-        <%= error_messages_for :object if respond_to? :error_messages_for %>
+  <h1>Flash Messages</h1>
 
-        <table class="form">
-          <tr>
-            <td><label for="object_text">Text Field</label></td>
-            <td><%= text_field :object, :text %></td>
-          </tr>
-          <tr>
-          <tr>
-            <td><label for="object_multiline">Text Area</label></td>
-            <td><%= text_area :object, :multiline, :rows => 5, :cols => 40 %></td>
-          </tr>
-          <tr>
-            <td><label for="object_select">Select List</label></td>
-            <td><%= select :object, :select, ['foo', 'bar'] %></td>
-          </tr>
-          <tr>
-            <td><label for="object_file">File Field</label></td>
-            <td><%= file_field :object, :file %></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              <%= check_box :object, :checkbox %>
-              <label for="object_checkbox">Check Box</label>
-            </td>
-          </tr>
-        </table>
-      <% end %>
-    </div>
+  <p>The following sub-sections test various flash message to make
+  sure they look good. Make sure you have run the rake tasks to
+  install the assets in your app before running this test.</p> 
 
-    <%= javascript_include_tag \
-      'http://ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js',
-      'http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.3/effects.js',
-      'error_messages' unless params[:nojs] %>
-  </body>
-</html>
+  <h2>Cannon flash keys</h2>
+  <p>
+    For a while :notice, :warning and :message have been somewhat
+    of cannon flash keys.
+  </p>
+  <%= flash_messages :notice, :warning, :message %>
+
+  <h2>Alternate flash keys</h2>
+  <p>
+    The cannon flash keys are not always obvious. Some people
+    prefer :success to :notice, :error to :warning and :info or :alert
+    to :message. We want to support these common alternates.
+  </p>
+  <%= flash_messages :success, :error, :info, :alert %>
+
+  <h2>Corner Cases</h2>
+  <p>
+    We also want to test to ensure that VERY long flash messages still
+    look good AND flash messages with multiple values (i.e. an array)
+    is supported.
+  </p>
+  <%= flash_messages :long, :multiple %>
+
+  <h1>Form Errors</h1>
+  <p>
+    This next section tests form error.
+    Specifically we are looking at:
+  </p>
+  <ul>
+    <li>The problem fields highlighted</li>
+    <li>The detail of what is wrong pops up on focus</li>
+  </ul>
+
+  <%= form_tag do %>
+
+    <table class="form">
+      <tr>
+        <td><label for="object_text">Text Field</label></td>
+        <td><%= text_field :object, :text %></td>
+      </tr>
+      <tr>
+      <tr>
+        <td><label for="object_multiline">Text Area</label></td>
+        <td><%= text_area :object, :multiline, :rows => 5, :cols => 40 %></td>
+      </tr>
+      <tr>
+        <td><label for="object_select">Select List</label></td>
+        <td><%= select :object, :select, ['foo', 'bar'] %></td>
+      </tr>
+      <tr>
+        <td><label for="object_file">File Field</label></td>
+        <td><%= file_field :object, :file %></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <%= check_box :object, :checkbox %>
+          <label for="object_checkbox">Check Box</label>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <%= radio_button :object, :radio, 'Some value' %>
+          <label for="object_radio">Radio</label>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+</div>

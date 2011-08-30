@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resources :error_messages, :only => :index if Rails.env.development?
+  resources :error_messages, :only => :index
 end

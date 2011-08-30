@@ -24,9 +24,6 @@ messages and error messages. Includes:
     Replaces the default field_error_proc with a span based one since
     the div one often causes layout problems and invalid HTML.
 
-  rake task::
-    A rake task to copy the assets (CSS, JS, images) into the app
-
 Since this plugin is mostly about establishing a look we don't have much
 in the way of traditional unit testing but we do have a test page that
 shows everything all laid out so you can adjust and tweak the styles.
@@ -34,7 +31,7 @@ This special page can be accessed via the path /error_messages and is
 ONLY available if in the development environment.
 
 Only Rails 3 is supported. For Rails 2.x support see version 0.0.2 of
-this gem.
+this gem. Prior to Rails 3.1 you will need to copy the assets yourself.
 
 = CREDIT
 

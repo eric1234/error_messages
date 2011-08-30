@@ -1,0 +1,45 @@
+.flash-block, .error-messages {padding: 0; font-size: 1.1em; margin: 1em 0}
+.flash-block ul, .flash-block li {
+  list-style-type: none;
+  margin: 0; padding: 0;
+}
+.flash-block div, .error-messages {
+  padding: 1em 10px 1em 47px;
+  border-width: medium;
+  border-style: solid;
+  background-color: #fdd9a3;
+  border-color: #cc6502;
+  background-image: url(/assets/flash-message.png);
+  background-position: 10px 50%;
+  background-repeat: no-repeat;
+}
+.flash-notice div, .flash-success div {
+  background-color: #ACE18A;
+  border-color: #2A954D;
+  background-image: url(/assets/flash-notice.png);
+}
+.flash-warning div, .flash-error div, .error-messages {
+  background-color: #F09185;
+  border-color: #A30000;
+  background-image: url(/assets/flash-warning.png);
+}
+
+.field-with-errors {position: relative}
+.text-with-errors input, .field-with-errors textarea,
+.email-with-errors input, .url-with-errors input,
+.password-with-errors input, .number-with-errors input,
+.field-with-errors select, .checkbox-with-errors,
+.radio-with-errors, .file-with-errors input, .tel-with-errors input {
+  background-color: #F09185
+}
+.field-with-errors option {background-color: #FFF}
+
+.error-messages {
+  position: absolute;
+  top: 1.5em; left: 0;
+  margin: 0;
+  z-index: 1000;
+  display: block;
+}
+.textarea-with-errors .error-messages {bottom: -3.5em; top: auto}
+.field-with-errors span {display: block}

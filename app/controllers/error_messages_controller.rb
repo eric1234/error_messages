@@ -1,8 +1,6 @@
 class ErrorMessagesController < ApplicationController
 
   def index
-    return :nothing => true, :status => :not_found unless Rails.env.development?
-
     # Cannon messages
     flash.now[:notice] =  'Fuck yea...'
     flash.now[:warning] = 'Oh shit...'
@@ -30,13 +28,15 @@ LONG
     def @object.multiline; end
     def @object.select; end
     def @object.checkbox; end
+    def @object.radio; end
     def @object.file; end
     def @object.errors
       ActiveModel::Errors.new(self).tap do |errors|
         errors.add :base, 'Some generic error'
-        %w(text multiline select checkbox file).each do |attr_type|
+        %w(text multiline select checkbox file radio).each do |attr_type|
           errors.add attr_type.to_sym, 'error'
         end
+        errors.add :text, 'another error'
       end
     end
   end
