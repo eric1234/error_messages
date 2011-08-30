@@ -41,5 +41,5 @@
   z-index: 1000;
   display: block;
 }
+.error-messages span {display: block}
 .textarea-with-errors .error-messages {bottom: -3.5em; top: auto}
-.field-with-errors span {display: block}

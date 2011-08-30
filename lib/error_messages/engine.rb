@@ -1,6 +1,7 @@
-# The only reason this is an engine instead of just a simple Railtie
-# is to allow the test page for development mode. Maybe there is a
-# better way to do this?
+# We are an engine instead of a simple Railtie for two reasons:
+#
+#   * We are using the Rails asset pipeline which requires an engine.
+#   * Our test page allows us a controller.
 class ErrorMessages::Railtie < Rails::Engine
 
   # Let everybody know about our snazzy helper :)
