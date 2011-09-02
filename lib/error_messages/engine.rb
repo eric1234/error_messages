@@ -43,16 +43,22 @@ class ErrorMessages::Railtie < Rails::Engine
       type = 'textarea' if !type && html_tag.include?('<textarea')
       type = 'select' if !type && html_tag.include?('<select')
       type += '-with-errors' if type
-      messages = instance.error_message.collect do |e|
-        e[0] = e.first.capitalize
-        "<span>#{e}</span>"
-      end.join
-      %Q{
-        <span class="field-with-errors #{type}">
-          #{html_tag}
-          <span class="error-messages" style="display: none">#{messages}</span>
-        </span>
-      }.html_safe
+      if type
+        # Type is known so attach error message
+        messages = instance.error_message.collect do |e|
+          e[0] = e.first.capitalize
+          "<span>#{e}</span>"
+        end.join
+        %Q{
+          <span class="field-with-errors #{type}">
+            #{html_tag}
+            <span class="error-messages" style="display: none">#{messages}</span>
+          </span>
+        }.html_safe
+      else
+        # Labels and unknown attributes
+        %Q{<span class="field-with-errors">#{html_tag}</span>}.html_safe
+      end
     end
   end
 end
