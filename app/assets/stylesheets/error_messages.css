@@ -18,7 +18,7 @@
   border-color: #2A954D;
   background-image: url(/assets/flash-notice.png);
 }
-.flash-warning div, .flash-error div, .error-messages {
+.flash-warning div, .flash-alert div, .flash-error div, .error-messages {
   background-color: #F09185;
   border-color: #A30000;
   background-image: url(/assets/flash-warning.png);
