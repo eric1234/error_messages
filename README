@@ -1,28 +1,26 @@
-A crazy simple Rails add-on to handle displaying and styling of flash
-messages and error messages. Includes:
+A simple Rails add-on to handle displaying and styling of flash messages and
+error messages. Includes:
 
   flash_messages helper::
     Will output all flash messages in a container to be easily styled
 
   error_messages.css::
-    Included in your app to apply nice looking styles that most apps
-    will find reasonable. Styles flash messages, the
-    "error_messages_for" helper that Rails provides and the
-    field_error_proc that highlights the problem fields
+    Applies nice looking styles that most apps will find reasonable. Provides
+    styling for the flash messages and the popup validation messages.
 
   error_messages.js::
-    If you want to get fancy and have some of the flash messages fade
-    shortly after displaying (nice for notices) include this in your
-    application. NOTE: You MUST include prototype and script.aculo.us
-    BEFORE you load this JS file.
+    For the inline popup message this will trigger the display and hiding
+    of them as the fields get focus. Also for notice messages will slide the
+    message away aftera few seconds if script.aculo.us is enabled.
 
   flash_type.png::
     For several of the common flash types our stylesheets refer to some
     images which help convey the message and look nice in most apps.
 
   field_error_proc::
-    Replaces the default field_error_proc with a span based one since
-    the div one often causes layout problems and invalid HTML.
+    Replaces the default field_error_proc so that inline error messages are
+    included on the page. Are hidden by default but the JavaScript will
+    renable.
 
 Since this plugin is mostly about establishing a look we don't have much
 in the way of traditional unit testing but we do have a test page that
@@ -35,5 +33,5 @@ this gem. Prior to Rails 3.1 you will need to copy the assets yourself.
 
 = CREDIT
 
-This gem was developed by Eric Anderson (http://pixelwareinc.com) via
+This gem was developed by Eric Anderson (http://pixelwareinc.com) mostly via
 work done under Red Tusk Studios (http://redtusk.com).
