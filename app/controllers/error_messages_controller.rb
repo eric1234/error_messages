@@ -4,15 +4,15 @@ class ErrorMessagesController < ApplicationController
     return :nothing => true, :status => :not_found unless Rails.env.development?
 
     # Cannon messages
-    flash.now[:notice] =  'Fuck yea...'
-    flash.now[:warning] = 'Oh shit...'
-    flash.now[:message] = 'Just letting you know...'
+    flash.now[:notice] =  'A success message. Yea!'
+    flash.now[:warning] = 'A failure message. Crap :('
+    flash.now[:message] = 'Some neutral info'
 
     # Alternate names
     flash.now[:success] = flash[:notice]
     flash.now[:error]   = flash[:warning]
+    flash.now[:alert]   = flash[:warning]
     flash.now[:info]    = flash[:message]
-    flash.now[:alert]   = flash[:message]
 
     # Corner cases
     flash.now[:long] = <<LONG

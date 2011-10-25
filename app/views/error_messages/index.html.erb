@@ -1,5 +1,5 @@
 <style>
-  #error-content {margin: 1em auto}
+  #error-content {margin: 1em auto 5em}
   .form td {vertical-align: top}
 </style>
 
@@ -7,9 +7,10 @@
 
   <h1>Flash Messages</h1>
 
-  <p>The following sub-sections test various flash message to make
-  sure they look good. Make sure you have run the rake tasks to
-  install the assets in your app before running this test.</p> 
+  <p>
+    The following sub-sections test various flash message to make
+    sure they look good.
+  </p>
 
   <h2>Cannon flash keys</h2>
   <p>
@@ -21,10 +22,10 @@
   <h2>Alternate flash keys</h2>
   <p>
     The cannon flash keys are not always obvious. Some people
-    prefer :success to :notice, :error to :warning and :info or :alert
+    prefer :success to :notice, :error or :alert to :warning and :info
     to :message. We want to support these common alternates.
   </p>
-  <%= flash_messages :success, :error, :info, :alert %>
+  <%= flash_messages :success, :error, :alert, :info %>
 
   <h2>Corner Cases</h2>
   <p>
