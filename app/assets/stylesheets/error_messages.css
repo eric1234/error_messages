@@ -1,9 +1,9 @@
-.flash-block, .error-messages {padding: 0; font-size: 1.1em; margin: 1em 0}
+.flash-block, .error-messages, .inline-error-messages {padding: 0; font-size: 1.1em; margin: 1em 0}
 .flash-block ul, .flash-block li {
   list-style-type: none;
   margin: 0; padding: 0;
 }
-.flash-block div, .error-messages {
+.flash-block div, .error-messages, .inline-error-messages {
   padding: 1em 10px 1em 47px;
   border-width: medium;
   border-style: solid;
@@ -18,7 +18,7 @@
   border-color: #2A954D;
   background-image: url(/assets/flash-notice.png);
 }
-.flash-warning div, .flash-alert div, .flash-error div, .error-messages {
+.flash-warning div, .flash-alert div, .flash-error div, .error-messages, .inline-error-messages {
   background-color: #F09185;
   border-color: #A30000;
   background-image: url(/assets/flash-warning.png);
@@ -43,3 +43,11 @@
 }
 .error-messages span {display: block}
 .textarea-with-errors .error-messages {bottom: -3.5em; top: auto}
+
+.inline-error-messages {margin: 0}
+.inline-error-messages, .inline-error-messages span {
+  display:inline-block;
+  /* IE hack */
+  zoom:1;
+  *display:inline;
+}

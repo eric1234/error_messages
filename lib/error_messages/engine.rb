@@ -37,26 +37,49 @@ class ErrorMessages::Railtie < Rails::Engine
   # Our solution is to put it in the container but have it hidden by
   # default. When they use positioning and JavaScript to show the
   # message when the field gets focus.
+  #
+  # Since some fields cannot handle a popup error message well (dates,
+  # rich text) you can also add the class "error-before" or "error-after".
+  # In this case the error will be on the form (instead of a popup) either
+  # above the field or below the field. In addition the field name will be
+  # included in the message
   initializer 'error_messages.field_error_proc' do
     ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
       type = html_tag.scan(/type\=\"([^\"]+)\"/).first.first rescue nil
       type = 'textarea' if !type && html_tag.include?('<textarea')
       type = 'select' if !type && html_tag.include?('<select')
       type += '-with-errors' if type
-      if type
-        # Type is known so attach error message
+      if type # Type is known so attach error message
         messages = instance.error_message.collect do |e|
           e[0] = e.first.capitalize
           "<span>#{e}</span>"
         end.join
-        %Q{
-          <span class="field-with-errors #{type}">
-            #{html_tag}
-            <span class="error-messages" style="display: none">#{messages}</span>
-          </span>
-        }.html_safe
-      else
-        # Labels and unknown attributes
+
+        classes = html_tag.scan(/class\=\"([^\"]+)\"/).first.first rescue ''
+        case
+          when classes.include?('error-before')
+            %Q{
+              <span class="field-with-errors #{type}">
+                <span class="inline-error-messages">#{messages}</span><br>
+                #{html_tag}
+              </span>
+            }.html_safe
+          when classes.include?('error-after')
+            %Q{
+              <span class="field-with-errors #{type}">
+                #{html_tag}<br>
+                <span class="inline-error-messages">#{messages}</span>
+              </span>
+            }.html_safe
+          else
+            %Q{
+              <span class="field-with-errors #{type}">
+                #{html_tag}
+                <span class="error-messages" style="display: none">#{messages}</span>
+              </span>
+            }.html_safe
+        end
+      else # Labels and unknown attributes
         %Q{<span class="field-with-errors">#{html_tag}</span>}.html_safe
       end
     end

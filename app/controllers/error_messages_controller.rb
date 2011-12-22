@@ -32,10 +32,12 @@ LONG
     def @object.checkbox; end
     def @object.radio; end
     def @object.file; end
+    def @object.before; end
+    def @object.after; end
     def @object.errors
       ActiveModel::Errors.new(self).tap do |errors|
         errors.add :base, 'Some generic error'
-        %w(text multiline select checkbox file radio).each do |attr_type|
+        %w(text multiline select checkbox file radio date after before).each do |attr_type|
           errors.add attr_type.to_sym, 'error'
         end
         errors.add :text, 'another error'

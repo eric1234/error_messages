@@ -53,7 +53,6 @@
         <td><%= text_field :object, :text %></td>
       </tr>
       <tr>
-      <tr>
         <td><label for="object_multiline">Text Area</label></td>
         <td><%= text_area :object, :multiline, :rows => 5, :cols => 40 %></td>
       </tr>
@@ -78,6 +77,14 @@
           <%= radio_button :object, :radio, 'Some value' %>
           <label for="object_radio">Radio</label>
         </td>
+      </tr>
+      <tr>
+        <td><label for="object_before">Inline error before field</label></td>
+        <td><%= text_field :object, :before, :class => 'error-before' %></td>
+      </tr>
+      <tr>
+        <td><label for="object_after">Inline error after field</label></td>
+        <td><%= text_field :object, :after, :class => 'error-after' %></td>
       </tr>
     </table>
   <% end %>
