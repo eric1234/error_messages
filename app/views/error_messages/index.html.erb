@@ -80,7 +80,8 @@
       </tr>
       <tr>
         <td><label for="object_before">Inline error before field</label></td>
-        <td><%= text_field :object, :before, :class => 'error-before' %></td>
+        <td><%= text_field :object, :before, :class => 'error-before',
+          'data-error-label' => 'Field' %></td>
       </tr>
       <tr>
         <td><label for="object_after">Inline error after field</label></td>

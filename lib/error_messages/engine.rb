@@ -41,8 +41,12 @@ class ErrorMessages::Railtie < Rails::Engine
   # Since some fields cannot handle a popup error message well (dates,
   # rich text) you can also add the class "error-before" or "error-after".
   # In this case the error will be on the form (instead of a popup) either
-  # above the field or below the field. In addition the field name will be
-  # included in the message
+  # above the field or below the field.
+  #
+  # By default the field name is not includes in the message as it is usually
+  # not necessary (and difficult to determine easily). But if you want you
+  # can add the attribute data-error-label="Field name" to set a field name
+  # which will be includes in the error message.
   initializer 'error_messages.field_error_proc' do
     ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
       type = html_tag.scan(/type\=\"([^\"]+)\"/).first.first rescue nil
@@ -50,8 +54,14 @@ class ErrorMessages::Railtie < Rails::Engine
       type = 'select' if !type && html_tag.include?('<select')
       type += '-with-errors' if type
       if type # Type is known so attach error message
+
+        label = html_tag.scan(/data\-error\-label\=\"([^\"]+)\"/).first.first rescue nil
         messages = instance.error_message.collect do |e|
-          e[0] = e.first.capitalize
+          if label
+            e = "#{label} #{e}"
+          else
+            e[0] = e.first.capitalize
+          end
           "<span>#{e}</span>"
         end.join
 

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    error_messages (0.1.6)
+    error_messages (0.1.7)
       rails
 
 GEM
