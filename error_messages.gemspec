@@ -1,12 +1,13 @@
 Gem::Specification.new do |s|
   s.name = 'error_messages'
-  s.version = '0.1.8'
+  s.version = '0.1.9'
   s.homepage = 'http://wiki.github.com/eric1234/error_messages/'
   s.author = 'Eric Anderson'
   s.email = 'eric@pixelwareinc.com'
   s.add_dependency 'rails'
   s.files = Dir['**/*.rb'] + Dir['**/*.rake'] + Dir['**/*.erb'] +
-    Dir['**/*.js'] + Dir['**/*.css'] + Dir['**/*.png']
+    Dir['**/*.js'] + Dir['**/*.css'] + Dir['**/*.png'] +
+    Dir['**/*.coffee']
   s.has_rdoc = true
   s.extra_rdoc_files << 'README'
   s.rdoc_options << '--main' << 'README'
