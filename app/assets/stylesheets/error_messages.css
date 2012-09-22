@@ -1,9 +1,11 @@
-.flash-block, .error-messages, .inline-error-messages {padding: 0; font-size: 1.1em; margin: 1em 0}
+.flash-block, .error-messages, .warning, .inline-error-messages {
+  padding: 0; font-size: 1.1em; margin: 1em 0
+}
 .flash-block ul, .flash-block li {
   list-style-type: none;
   margin: 0; padding: 0;
 }
-.flash-block div, .error-messages, .inline-error-messages {
+.flash-block div, .error-messages, .inline-error-messages, .warning {
   padding: 1em 10px 1em 47px;
   border-width: medium;
   border-style: solid;
