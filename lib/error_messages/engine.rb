@@ -1,7 +1,3 @@
-# We are an engine instead of a simple Railtie for two reasons:
-#
-#   * We are using the Rails asset pipeline which requires an engine.
-#   * Our test page allows us a controller.
 class ErrorMessages::Railtie < Rails::Engine
 
   # Let everybody know about our snazzy helper :)
@@ -31,22 +27,21 @@ class ErrorMessages::Railtie < Rails::Engine
   # the top. So you have to install a plugin to really use it now.
   #
   # I like the in-line notification. Makes it obvious which field has
-  # the problem. The problem is where to put the message (value too long,
-  # can't be blank, etc).
+  # the problem. The problem is where to put the error message.
   #
-  # Our solution is to put it in the container but have it hidden by
+  # My solution is to put it in the container but have it hidden by
   # default. When they use positioning and JavaScript to show the
   # message when the field gets focus.
   #
   # Since some fields cannot handle a popup error message well (dates,
-  # rich text) you can also add the class "error-before" or "error-after".
-  # In this case the error will be on the form (instead of a popup) either
-  # above the field or below the field.
+  # rich text) you can also add the class "error-before" or
+  # "error-after". In this case the error will be on the form (instead
+  # of a popup) either above the field or below the field.
   #
-  # By default the field name is not includes in the message as it is usually
-  # not necessary (and difficult to determine easily). But if you want you
-  # can add the attribute data-error-label="Field name" to set a field name
-  # which will be includes in the error message.
+  # By default the field name is not includes in the message as it is
+  # usually not necessary (and difficult to determine easily). But if
+  # you want you can add the attribute data-error-label="Field name" to
+  # set a field name which will be includes in the error message.
   initializer 'error_messages.field_error_proc' do
     ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
       type = html_tag.scan(/type\=\"([^\"]+)\"/).first.first rescue nil
