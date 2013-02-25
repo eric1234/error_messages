@@ -66,28 +66,21 @@ class ErrorMessages::Railtie < Rails::Engine
         end.join
 
         classes = html_tag.scan(/class\=\"([^\"]+)\"/).first.first rescue ''
+        # NOTE: Care is taken to not add whitespace nodes
         case
           when classes.include?('error-before')
-            %Q{
-              <span class="field-with-errors #{type}">
-                <span class="inline-error-messages">#{messages}</span><br>
-                #{html_tag}
-              </span>
-            }.html_safe
+            %Q{<span class="field-with-errors #{type}"
+                ><span class="inline-error-messages">#{messages}</span><br
+                >#{html_tag}</span>}.html_safe
           when classes.include?('error-after')
-            %Q{
-              <span class="field-with-errors #{type}">
-                #{html_tag}<br>
-                <span class="inline-error-messages">#{messages}</span>
-              </span>
-            }.html_safe
+            %Q{<span class="field-with-errors #{type}"
+                >#{html_tag}<br
+                ><span class="inline-error-messages">#{messages}</span
+              ></span>}.html_safe
           else
-            %Q{
-              <span class="field-with-errors #{type}">
-                #{html_tag}
-                <span class="error-messages" style="display: none">#{messages}</span>
-              </span>
-            }.html_safe
+            %Q{<span class="field-with-errors #{type}"
+              >#{html_tag}<span class="error-messages" style="display: none">#{messages}</span
+              ></span>}.html_safe
         end
       else # Labels and unknown attributes
         %Q{<span class="field-with-errors">#{html_tag}</span>}.html_safe
