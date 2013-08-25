@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name = 'error_messages'
-  s.version = '0.2.5'
-  s.homepage = 'http://wiki.github.com/eric1234/error_messages/'
+  s.version = '0.2.6'
+  s.homepage = 'http://github.com/eric1234/error_messages'
   s.author = 'Eric Anderson'
   s.email = 'eric@pixelwareinc.com'
   s.add_dependency 'rails'
