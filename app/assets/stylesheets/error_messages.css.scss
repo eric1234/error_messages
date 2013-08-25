@@ -52,7 +52,7 @@
   border-style: solid;
   background-color: #fdd9a3;
   border-color: #cc6502;
-  background-image: url(/assets/flash-message.png);
+  background-image: image-url('flash-message.png');
   background-position: 10px 50%;
   background-repeat: no-repeat;
 }
@@ -61,14 +61,14 @@
   div {
     background-color: #ACE18A;
     border-color: #2A954D;
-    background-image: url(/assets/flash-notice.png);
+    background-image: image-url('flash-notice.png');
   }
 }
 
 @mixin bad-styles {
   background-color: #F09185;
   border-color: #A30000;
-  background-image: url(/assets/flash-warning.png);
+  background-image: image-url('flash-warning.png');
 }
 .flash-warning, .flash-alert, .flash-error {
   div {@include bad-styles}
