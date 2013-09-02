@@ -4,6 +4,7 @@ Gem::Specification.new do |s|
   s.homepage = 'http://github.com/eric1234/error_messages'
   s.author = 'Eric Anderson'
   s.email = 'eric@pixelwareinc.com'
+  s.license = 'Public domain'
   s.add_dependency 'rails'
   s.add_dependency 'sass-rails'
   s.files = Dir['**/*.rb'] + Dir['**/*.rake'] + Dir['**/*.erb'] +
