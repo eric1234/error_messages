@@ -77,7 +77,9 @@ class ErrorMessages::Railtie < Rails::Engine
               >#{html_tag}<span class="error-messages" style="display: none">#{messages}</span
               ></span>}.html_safe
         end
-      else # Labels and unknown attributes
+      elsif html_tag.include?('<label') # Labels
+        html_tag
+      else # Unknown attributes
         %Q{<span class="field-with-errors">#{html_tag}</span>}.html_safe
       end
     end
