@@ -1,3 +1,7 @@
+NOTE: This gem is deprecated. The flash helper is pretty trivial and is better
+placed in an app so it can be customized. The error styling is better handled
+through a more robust gem like simple_form.
+
 A simple Rails addon that provides for inline validation message and
 nicely styled flash messages. Includes:
 

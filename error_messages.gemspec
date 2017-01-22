@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'error_messages'
-  s.version = '0.3.0'
+  s.version = '0.4.0'
   s.homepage = 'http://github.com/eric1234/error_messages'
   s.author = 'Eric Anderson'
   s.email = 'eric@pixelwareinc.com'
